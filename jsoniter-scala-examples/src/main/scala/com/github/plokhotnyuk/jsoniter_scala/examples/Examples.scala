@@ -43,7 +43,7 @@ object Examples {
     println(Try(readFromArray(
       """
         |{
-        |"user_id":"x",
+        |"user_id":null,
         |"is_user_logged_in":"true",
         |"checkin_date":"2222-12-12",
         |"checkout_date":"2019-12-13"
