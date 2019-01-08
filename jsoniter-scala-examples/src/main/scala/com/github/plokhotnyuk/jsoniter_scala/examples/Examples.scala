@@ -7,12 +7,12 @@ import java.time.LocalDate
 import scala.util.Try
 
 case class UserData(
-  user_id: String,
+  user_id: Option[String],
   @stringified is_user_logged_in: Boolean,
   checkin_date: LocalDate,
   checkout_date: LocalDate
 ) {
-  require(!is_user_logged_in || (user_id ne null), "missing `user_id` for logged in user")
+  require(!is_user_logged_in || user_id.isDefined, "missing `user_id` for logged in user")
   require(checkout_date.isAfter(checkin_date), "`checkout_date` should be after `checkin_date`")
 }
 
