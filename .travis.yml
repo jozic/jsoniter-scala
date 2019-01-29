@@ -1,6 +1,8 @@
 language: scala
 git:
   depth: 100
+before_install:
+  - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
 matrix:
   include:
     - os: linux
@@ -8,6 +10,14 @@ matrix:
       scala: 2.12.8
     - os: linux
       jdk: openjdk8
+      scala: 2.12.8
+    - os: linux
+      env: JDK='Oracle JDK 12-ea'
+      install: . ./install-jdk.sh -F 12
+      scala: 2.12.8
+    - os: linux
+      env: JDK='Oracle JDK 13-ea'
+      install: . ./install-jdk.sh -F 13
       scala: 2.12.8
 script:
   - travis_wait 40 sbt -no-colors ++$TRAVIS_SCALA_VERSION -J-Xms2g -J-Xmx2g -J-XX:MaxMetaspaceSize=512m clean coverage test coverageReport mimaReportBinaryIssues
