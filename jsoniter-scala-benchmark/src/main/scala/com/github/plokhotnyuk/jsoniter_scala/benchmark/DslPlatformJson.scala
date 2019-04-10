@@ -79,9 +79,7 @@ object DslPlatformJson {
   implicit val (openHashMapOfIntsToBooleansEncoder, openHashMapOfIntsToBooleansDecoder) =
     setupCodecs[mutable.OpenHashMap[Int, Boolean]]
 */
-/* FIXME: DSL_JSON throws java.lang.IllegalArgumentException: requirement failed: Unable to create decoder for com.github.plokhotnyuk.jsoniter_scala.benchmark.Primitives
   implicit val (primitivesEncoder, primitivesDecoder) = setupCodecs[Primitives]
-*/
   implicit val (seqOfTweetEncoder, seqOfTweetDecoder) = setupCodecs[Seq[Tweet]]
   implicit val (setOfIntsEncoder, setOfIntsDecoder) = setupCodecs[Set[Int]]
   implicit val (stringEncoder, stringDecoder) = setupCodecs[String]
