@@ -6,10 +6,10 @@ import java.util.zip.{GZIPInputStream, GZIPOutputStream}
 import com.github.plokhotnyuk.jsoniter_scala.macros._
 import com.github.plokhotnyuk.jsoniter_scala.core._
 
-case class Device(id: Int, model: String)
-
-case class User(name: String, devices: Seq[Device])
-
+/*
+Copied from the following benchmark:
+https://github.com/nguyentoanit/scala-json-libraries-comparison/blob/master/src/main/scala/example/Jsoniter.scala
+ */
 object Examples {
   def main(args: Array[String]): Unit = {
     val startTime = System.currentTimeMillis
